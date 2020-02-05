@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .page-container {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .content-container {
+    width: 740px;
+    margin: auto;
+  }
+  
+  .burgers-row {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  li {
+    padding: 5px;
+    margin: 5px;
+    background: #e4ffcd;
+    display: list-item;
+    list-style: none;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  .create-update-form {
+    padding: 5px;
+    margin: 5px;
+  }
+  
+  .form-group {
+    margin-bottom: 5px;
+  }
+  
+  ul.available {
+    color: black;
+  }
+  
+  ul.devoured {
+    color: grey;
+  }

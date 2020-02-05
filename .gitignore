@@ -1,3 +1,7 @@
+start.bat
+config.json
+nodemon.json
+
 # Logs
 logs
 *.log
