@@ -1,8 +1,15 @@
-
   #login {
     display: none;
   }
 
   #loggedin {
     display: none;
+  }
+
+  #username{
+    width: 100%;
+  }
+
+  #password{
+    width: 100%;
   }
