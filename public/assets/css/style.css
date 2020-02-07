@@ -6,10 +6,19 @@
     display: none;
   }
 
-  #username{
-    width: 100%;
+  #username[type=text]{
+
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    
   }
 
-  #password{
+  #password[type=text]{
     width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
   }
+
