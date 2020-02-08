@@ -26,7 +26,7 @@ $(function() {
     $(".submitPlaylist").on("submit", function(event) {
       event.preventDefault();
       const newSong = {
-        artist: $("#newArtist").val().trim()
+        artist: $("#newArtist").val().trim(),
         title: $("#newTitle").val().trim()
       };
       // send post
