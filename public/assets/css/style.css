@@ -59,4 +59,10 @@ body {
   display: block;
   margin: 8px;
 }
+a {
+  color: (internal value);
+  text-decoration: underline;
+  cursor: auto;
+}
+
 
