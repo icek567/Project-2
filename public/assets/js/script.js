@@ -1,17 +1,18 @@
-// on click of search
+const fs = require("fs");
+// const axios = require("axios");
+const youtube = require("youtube-api-search")
+
 $(function() {
     $(".searchBtn").on("click", function(event) {
       event.preventDefault();
-      const id = $(this).data("id");
-      const newSong = {
-        user: id,
-        artist: "userinput",
-        song: "songTitle"
-      };
+      const queryUrl = `https://www.googleapis.com/youtube/v3/search`
+      youtube.get(queryUrl).then(function(res) {
+        const newSearch = res.body.name //user Input
+      })
       // send put
       $.ajax("/api/songs/" + id, {
         type: "PUT",
-        data: newSong
+        data: newSearch
       })
         // reload
       .then(
@@ -22,16 +23,16 @@ $(function() {
     });
   
     // on submit
-    $(".create-selection").on("submit", function(event) {
+    $(".submitPlaylist").on("submit", function(event) {
       event.preventDefault();
-      const newSearch = {
-        searched: $("#newSearch").val().trim()
+      const newSong = {
+        artist: $("#newArtist").val().trim()
+        title: $("#newTitle").val().trim()
       };
-  
       // send post
       $.ajax("/api/playlist", {
         type: "POST",
-        data: newSearch
+        data: newSong
       })
         // reload
       .then(
