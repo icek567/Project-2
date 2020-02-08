@@ -36,3 +36,9 @@ p {
 div {
   display: block;
 }
+
+a {
+  color: (internal value);
+  text-decoration: underline;
+  cursor: auto;
+}
