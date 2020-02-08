@@ -1,54 +1,67 @@
-* {
+
+  nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  }
+  
+  #login {
+    display: none;
+  }
+
+  #loggedin {
+    display: none;
+  }
+
+  #username[type=text]{
+
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    
+  }
+
+  #password[type=text]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
     box-sizing: border-box;
   }
-  
-  img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .page-container {
+
+  #searchSong[type=text] {
     width: 100%;
-    margin: auto;
-    text-align: center;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
   }
+
+  #searchPlaylist[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  #searchGenre[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  } 
   
-  .content-container {
-    width: 740px;
-    margin: auto;
-  }
-  
-  .burgers-row {
-    display: flex;
-    justify-content: space-evenly;
-  }
-  
-  li {
-    padding: 5px;
-    margin: 5px;
-    background: #e4ffcd;
-    display: list-item;
-    list-style: none;
-  }
-  
-  .label {
-    font-weight: bold;
-  }
-  
-  .create-update-form {
-    padding: 5px;
-    margin: 5px;
-  }
-  
-  .form-group {
-    margin-bottom: 5px;
-  }
-  
-  ul.available {
-    color: black;
-  }
-  
-  ul.devoured {
-    color: grey;
-  }
+  #searchAlbum[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  } 
+body {
+  display: block;
+  margin: 8px;
+}
+a {
+  color: #4CAF50;
+  text-decoration: underline;
+  cursor: auto;
+}
