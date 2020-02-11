@@ -159,6 +159,10 @@ $(document).ready(function() {
       .then(getPlaylist);
   };
 
+  // function for play
+  
+  // function for play all
+
 });
 
 
