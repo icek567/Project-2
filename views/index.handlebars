@@ -1,8 +1,22 @@
+
 {{#each this}}
-    {{title}}
-    <div class="leftcontainer">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>{{title}}</h2>
+        </div>
+      </div>
+      <div class="row">
     {{#each Songs}}
-        {{name}}
+          <div class="col-3" id="playlist">
+            <div class="card">
+              {{name}}
+              <button type="button" class="btn btn-outline-dark">Play this song</button>
+              <button type="button" class="btn btn-outline-danger">Delete</button>
+            </div>
+        </div>
     {{/each}} 
+      </div>
     </div>
 {{/each}} 
+
