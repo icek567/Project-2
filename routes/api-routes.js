@@ -63,16 +63,23 @@ module.exports = function(app) {
         })
     })
 
+    // Delete a Song
+    app.delete("/api/song/delete", function(req, res){
+        db.Song.destroy({where:{
+            name: req.body.name
+        }}).then(function(result){
+            res.status(201).send("Song delete Successful")
+        })
+    })
+
     // Fetch a youtube link from the first song retrieved from a search term, e.g. "Viva la Vida"
-    app.get("/api/search/:name", function(req, res){
+    app.get("/api/search", function(req, res){
         //Youtube song matcher
         var youtube = require('youtube-api-search');
         const API_KEY = 'AIzaSyDRzxI21ptL6H0kJXoNqyQFaFOzxraS0uA';
 
-        youtube({key: API_KEY, term: req.params.name, maxResults: 1}, (videos) => {
+        youtube({key: API_KEY, term: req.query.searchquery, maxResults: 1}, (videos) => {
         res.send("https://www.youtube.com/watch?v=" + videos[0].id.videoId);
         });
     })
-
-    //Work on a delete later
 }
