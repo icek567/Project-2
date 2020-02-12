@@ -1,0 +1,44 @@
+nav {
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+
+h1 {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+
+}
+h2{
+  border: 2px solid #4CAF50;
+  border-radius: 4px;
+}
+img {
+  width: 200%
+}
+
+dt {
+  font-size: 15px;
+}
+p {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+div {
+  display: block;
+}
+
+a {
+  color: (internal value);
+  text-decoration: underline;
+  cursor: auto;
+}

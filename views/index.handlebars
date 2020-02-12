@@ -1,9 +1,10 @@
-{{title}}
 
+{{#each this}}
+    {{title}}
+    <div class="leftcontainer">
+    {{#each Songs}}
+        {{name}}
+    {{/each}} 
+    </div>
+{{/each}} 
 
-
-<div class="container">
-  {{#each this.Songs}}
-    {{name}}
-  {{/each}}
-</div>
