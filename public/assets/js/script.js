@@ -29,16 +29,17 @@ $(document).ready(function() {
   }
 
   function useSearch(searchData) {
-    $.post("/api/search", searchData)
+    $.post("/api/search/:name", searchData)
       .then(getSearch)
   }
 
   // create a card for the searched history
   function createSearchCard(searchData) {
-    newCard.data("search", searchData);
 
     // elements for card
     const newCard = $("<div>").attr("class", "card searchCard col-mt-6");
+    newCard.data("search", searchData);
+
     const cardBodyEl = $("<div>").attr("class", "card-body mb-4");
     let cardNameEl = $("<div>").attr("class", "card-title").text(searchData.newSong);
 
@@ -57,7 +58,7 @@ $(document).ready(function() {
 
   // function to display search result
   function getSearch() {
-    $.get("/api/songs", function(data) {
+    $.get("/api/songs/", function(data) {
       var cardsToAdd = [];
       for (var i = 0; i < data.length; i++) {
         cardsToAdd.push(createSearchCard(data[i]));
