@@ -94,7 +94,7 @@ $(document).ready(function() {
   // references for playlist
   const playlistSong = $("#playlist-song");
   const songList = $("songBody");
-  const playlistContainer = $(".playlist-container");
+  const playlistContainer = $(".playlist");
   // adding listners for play song and delete from playlist
   $(document).on("click", ".play-song", playSongClick);
   $(document).on("click", ".delete-song", deleteSongClick);
@@ -155,14 +155,23 @@ $(document).ready(function() {
     const id = listItemData.id;
     $.ajax({
       method: "DELETE",
-      url: "/api/songs/" + id
+      url: "/api/songs/:name" + id
     })
       .then(getPlaylist);
   };
 
-  // function for play
-  
-  // function for play all
+  // function for play (changes the source link for the youtube iframe)
+  function playSongClick () {
+    const videoLink = $(this).parent("td").parent("tr").data("song")
+    const name = videoLink.name;
+    $.ajax({
+      method: "GET",
+      url: "api/search/" + name
+    })
+      .then(
+        $(".youtube").attr("src", youtube(name))
+      );
+  };
 
 });
 
