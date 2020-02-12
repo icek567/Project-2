@@ -2,7 +2,7 @@ var path = require("path")
 var db = require("../models")
 
 module.exports = function(app) {
-    app.get("/", function(res, req){
+    app.get("/", function(req, res){
         db.Playlist.findAll({
             include: [{
                 model: db.Song, 
