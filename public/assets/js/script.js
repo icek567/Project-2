@@ -97,7 +97,7 @@ $(document).ready(function() {
     $.ajax({
       method: "GET",
       url: "api/playlist" + name
-    }).then(updateVideo(res)); // update iframe url with the song clicked
+    }).then(updateVideo); // update iframe url with the song clicked
   };
 
   // click listner to delete video from playlist
