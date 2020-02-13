@@ -1,6 +1,3 @@
-// const fs = require("fs");
-// const axios = require("axios");
-const searchYoutube = require("youtube-api-search")
 
 $(document).ready(function() {
   // references for the search input
@@ -12,8 +9,8 @@ $(document).ready(function() {
   $(document).on("submit", "#search-bar", userInputSearch);
   $(document).on("click", ".add-song", addSongClick);
 
-  // guessing this is how we do the search with npm youtube-search-api-with-axios
-  searchYoutube();
+  // start the process
+  userInputSearch();
 
 
   // function to use submitted for search. might not be required because of npm module
@@ -23,15 +20,22 @@ $(document).ready(function() {
     if (!userSearch.val().trim().trim()) {
       return;
     }
-    useSearch({
+    searchYoutube({
       title: userSearch.val().trim()
     });
   }
 
-  function useSearch(searchData) {
-    $.post("/api/search/:name", searchData)
-      .then(getSearch)
-  }
+  function searchYoutube(userSearch) {
+    const userSearch = $(this).data("search");
+    const name = userSearch.name;
+    $.ajax({
+      method: "GET",
+      url: "/api/songs/" + name
+    }).then(getYoutube);
+  };
+
+
+  // REDO IN PROGRESS
 
   // create a card for the searched history
   function createSearchCard(searchData) {
