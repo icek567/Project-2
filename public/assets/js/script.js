@@ -1,18 +1,32 @@
 
 $(document).ready(function() {
   // references for the search input
-  const userSearch = $("#searchInput");
+  const userSearch = $("#submit");
   const searchResult = [];
 
   // const newSong = $("newSong");
   // const newYoutube = $("newYoutube");
   // const songContainer = $(".song-container");
 
+  $.ajax({
+    method: "GET",
+    url: "/api/playlist"
+  }).then(function(result){
+    console.log(result)
+    if (result === "empty database") {
+    $.ajax({
+      method: "POST",
+      url: "/api/playlist",
+      data: {'title': `Playlist`}
+    })
+    }
+  })
+
   // adding listners for submit of search, save result and delete saved
-  $(document).on("submit", "#search-bar", userInputSearch);
-  $(document).on("click", ".add-song", addSongClick);
-  $(document).on("click", ".play-song", playSongClick);
-  $(document).on("click", ".delete-song", deleteSongClick);
+  $("#search").on("submit", userInputSearch);
+  $(document).on("click", "#add-song", addSongClick);
+  $(document).on("click", "#play-song", playSongClick);
+  $(document).on("click", "#delete-song", deleteSongClick);
 
   // main function of this js are the following
   // Listner for (we call it song but really, its anything with the name on youtube)
@@ -30,16 +44,15 @@ $(document).ready(function() {
     // - DESTROY playlist obj
 
   // stuff i need on html
-  //   - id = search at searchbar
-  //   - id = add-song at the button to add searched link to playlist
-  //   - id = play-song at the playlist play button
-  //   - id = delete-song at the playlist delete button
-  //    public/assets/img/404.jpeg 
-  //     - a src image for when there is nothing returned from submit search
+    // - id = search at searchbar
+    // - id = add-song at the button to add searched link to playlist
+    // - id = play-song at the playlist play button
+    // - id = delete-song at the playlist delete button
+    //  public/assets/img/404.jpeg 
+      // - a src image for when there is nothing returned from submit search
 
 
   // start search from submit
-  userInputSearch();
 
   function userInputSearch(event) {
     event.preventDefault();
@@ -48,68 +61,60 @@ $(document).ready(function() {
       return;
     }
     searchYoutube({
-      title: userSearch.val().trim()
+      name: userSearch.val().trim()
     });
   }
 
-  function searchYoutube(userSearch) {
-    const userSearch = $(this).data();
-    const name = userSearch;
+  function searchYoutube(object) {
+    const searchInput = object.name
+    console.log(searchInput)
     $.ajax({
       method: "GET",
-      url: "/api/songs/" + name
+      url: "/api/search/?searchquery=" + searchInput,
     }).then(updateVideo);
   };
 
   function updateVideo(youtubeLink) {
-    const youtubeLink = res.body;
-    if (youtubeLink.status !== undefined) {
-      $(".youtube").attr("src", youtubeLink);
-    } else {
-      // need an image to replace the iframe src if nothing is returned
-      $(".youtube").attr("src", "./img/404.jpeg");
-    }
+      console.log(youtubeLink)
+      $("#youtube").attr("src", youtubeLink);
   }
 
   // click listner for addSongClick (add video to playlist)
   function addSongClick(event) {
     event.preventDefault();
-    const title = userSearch.body;
+    const songName = userSearch.val().trim()
     $.ajax({
       method: "POST",
-      url: "/api/playlist" + title
+      url: "/api/song",
+      data: {'name': `${songName}`}
+    }).then(function(){
+      window.location.href = "/"
     })
-
-    // .then(createPlaylist);
   }
-    // ---------------------------------------------
-    //  CREATE PLAYLIST CODE HERE
-    // --------------------------------------------- 
-
-    // function createPlaylist() {
-        // blahblahblah
-    // };
 
   // click listner to play video from playlist - update iframe src
   function playSongClick() {
     // assuming that the title portion of this button's parent is what we saved from add-song
-    const name = $(this).parent().text();
-    $.ajax({
-      method: "GET",
-      url: "api/playlist" + name
-    }).then(updateVideo); // update iframe url with the song clicked
+    const songName = $(this).parent().children().first().text();
+    console.log(songName)
+    searchYoutube({
+      name: songName})
+    ;
   };
 
   // click listner to delete video from playlist
   function deleteSongClick() {
-    const playlistData = $(this).parent("div").parent("div");
-    const name = playlistData.name;
+    const songName = $(this).parent().children().first().text();
+    console.log(songName)
     $.ajax({
       method: "DELETE",
-      url: "api/authors/" + name
-    }).then(userInputSearch);
+      url: "api/song",
+      data: {'name': `${songName}`}
+    }).then(function() {
+      window.location.href = "/"
+    });
   }
-
+});
 // ---------------------------------------------
 // OLD CODE BELOW
 // ---------------------------------------------
@@ -257,6 +262,3 @@ $(document).ready(function() {
 //   };
 
 // });
-
-
-
