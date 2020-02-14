@@ -30,12 +30,12 @@ $(document).ready(function() {
     // - DESTROY playlist obj
 
   // stuff i need on html
-    // - id = search at searchbar
-    // - id = add-song at the button to add searched link to playlist
-    // - id = play-song at the playlist play button
-    // - id = delete-song at the playlist delete button
-    //  public/assets/img/404.jpeg 
-      // - a src image for when there is nothing returned from submit search
+  //   - id = search at searchbar
+  //   - id = add-song at the button to add searched link to playlist
+  //   - id = play-song at the playlist play button
+  //   - id = delete-song at the playlist delete button
+  //    public/assets/img/404.jpeg 
+  //     - a src image for when there is nothing returned from submit search
 
 
   // start search from submit
