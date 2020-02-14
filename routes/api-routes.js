@@ -35,12 +35,14 @@ module.exports = function(app) {
             }
             ]
         }).then(function(result){
+
             if (result.length === 0 ){
                 res.send("empty database")
             }
             else {
                 res.json(result[0])
             }
+
         })
     })
 
@@ -69,7 +71,9 @@ module.exports = function(app) {
     })
 
     // Delete a Song
+
     app.delete("/api/song", function(req, res){
+
         db.Song.destroy({where:{
             name: req.body.name
         }}).then(function(result){
@@ -84,7 +88,9 @@ module.exports = function(app) {
         const API_KEY = 'AIzaSyDRzxI21ptL6H0kJXoNqyQFaFOzxraS0uA';
 
         youtube({key: API_KEY, term: req.query.searchquery, maxResults: 1}, (videos) => {
+
         res.send("https://www.youtube.com/embed/" + videos[0].id.videoId);
+
         });
     })
 }
