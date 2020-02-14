@@ -17,7 +17,9 @@ module.exports = function(app) {
             result = (result.map(item => item.get({
                 plain:true
             })))
-            res.render("index", result)
+
+            res.render("index", result[0])
+
         })
     })
 }

@@ -4,26 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="/public/assets/js/script.js"></script>
-    <title>Project 2</title>
-     <style type="text/css">
-        body{
-        background-image: url("https://images.pexels.com/photos/6320/smartphone-vintage-technology-music.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-          background-size: cover;
 
-        }
-        </style>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <title>Project 2</title>
+
 </head>
 <body>
     <div class="container">
      <div class="jumbotron"style="background-color: rgba(109, 103, 103, 0.76);">
-        <h1 class="display-4 text-center text-light">Our group Name</h1>
+
+        <h1 class="display-4 text-center text-light">Project 2</h1>
         <p class="lead text-center text-light">Kevin, Yong, Sergio, Jacob</p>
         <hr class="my-4">
         <nav class="navbar navbar-light">
-            <form class="form-inline">
-              <input class="form-control mr-sm-2" id="search" type="search" placeholder="Search" aria-label="Search">
+            <form class="form-inline" id="search" >
+              {{!-- <input class="form-control mr-sm-2" id="submitplaylist" type="search" placeholder="Create a playlist" aria-label="Search"> --}}
+              <input class="form-control mr-sm-2" id="submit" type="search" placeholder="Search" aria-label="Search">
+
               <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
             </form>
           </nav>
