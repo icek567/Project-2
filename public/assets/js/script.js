@@ -254,5 +254,4 @@ $(document).ready(function() {
 //         $(".youtube").attr("src", youtube(name))
 //       );
 //   };
-
 // });
