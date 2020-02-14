@@ -1,7 +1,7 @@
 {
     "development": {
       "username": "root",
-      "password": null,
+      "password": "",
       "database": "myplaylist",
       "host": "localhost",
       "port": 3306,
@@ -16,10 +16,10 @@
       "dialect": "mysql"
     },
     "production": {
-      "username": "root",
-      "password": null,
-      "database": "database_production",
-      "host": "127.0.0.1",
+      "username": "zp8p8rx5kq97mtrf",
+      "password": "zqn45jb34sabl1u3",
+      "database": "ul78b0y0oempukdi",
+      "host": "q3vtafztappqbpzn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
       "port": 3306,
       "dialect": "mysql"
     }
